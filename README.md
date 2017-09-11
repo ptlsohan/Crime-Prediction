@@ -14,25 +14,70 @@ the crime rate based on demographic and economic information about the particula
 “communities-crime.names”. The “full” dataset includes data fields with missing values (indicated by “?”), while in the 
 “clean” set these fields have been removed.
 
-1. Decision Trees
+#### 1. Decision Trees
 In this problem, you will use the clean dataset to predict whether the crime rate in a locality is greater than 0.1 per capita 
 or not.
 
-a. Create a new field “highCrime” which is true if the crime rate per capita (ViolentCrimesPerPop) is greater than 0.1, and 
-   false otherwise. What are the percentage of positive and negative instances in the dataset?
-b. Use DecisionTreeClassifier to learn a decision tree to predict highCrime on the entire dataset (remember to exclude the 
-   crime rate feature from the input feature set so you are not cheating). 
-    i. What are the training accuracy, precision, and recall for this tree? 
-    ii. What are the main features used for classification?Can you explain why they make sense (or not)?
-c. Now apply cross-validation (cross_val_score) to do 10-fold cross-validation to estimate the out-of-training accuracy of
-  decision tree learning for this task.
-    i. What are the 10-fold cross-validation accuracy, precision, and recall?
-    ii. Why are they different from the results in the previous test?
+    a. Create a new field “highCrime” which is true if the crime rate per capita (ViolentCrimesPerPop) is greater than 0.1,       and false otherwise. What are the percentage of positive and negative instances in the dataset?
+    b. Use DecisionTreeClassifier to learn a decision tree to predict highCrime on the entire dataset (remember to exclude the 
+    crime rate feature from the input feature set so you are not cheating). 
+        i. What are the training accuracy, precision, and recall for this tree? 
+        ii. What are the main features used for classification?Can you explain why they make sense (or not)?
+    c. Now apply cross-validation (cross_val_score) to do 10-fold cross-validation to estimate the out-of-training accuracy of
+      decision tree learning for this task.
+        i. What are the 10-fold cross-validation accuracy, precision, and recall?
+        ii. Why are they different from the results in the previous test?
 
-2. Linear Classification
-Use GaussianNB to learn a Naive Bayes classifier to predict highCrime.
-What is the 10-fold cross-validation accuracy, precision, and recall for this method?
-What are the 10 most predictive features? This can be measured by the normalized absolute difference of means for the feature between the two classes:
+#### 2. Linear Classification
+    a.Use GaussianNB to learn a Naive Bayes classifier to predict highCrime.
+        i. What is the 10-fold cross-validation accuracy, precision, and recall for this method?
+        ii. What are the 10 most predictive features? This can be measured by the normalized absolute difference of means for            the feature between the two classes
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mfrac>
+    <mrow>
+      <mfenced open="|" close="|" separators="|">
+        <mrow>
+          <msub>
+            <mrow>
+              <mi>μ</mi>
+            </mrow>
+            <mrow>
+              <mi>T</mi>
+            </mrow>
+          </msub>
+          <mo>-</mo>
+          <msub>
+            <mrow>
+              <mi>μ</mi>
+            </mrow>
+            <mrow>
+              <mi>F</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mfenced>
+    </mrow>
+    <mrow>
+      <msub>
+        <mrow>
+          <mi>σ</mi>
+        </mrow>
+        <mrow>
+          <mi>T</mi>
+        </mrow>
+      </msub>
+      <mo>+</mo>
+      <msub>
+        <mrow>
+          <mi>σ</mi>
+        </mrow>
+        <mrow>
+          <mi>F</mi>
+        </mrow>
+      </msub>
+    </mrow>
+  </mfrac>
+</math>
 
 The larger this different, the more predictive the feature. Why do these make sense (or not)?
 How do these results compare with your results from decision trees, above?
