@@ -32,7 +32,7 @@ or not.
     a.Use GaussianNB to learn a Naive Bayes classifier to predict highCrime.
         i. What is the 10-fold cross-validation accuracy, precision, and recall for this method?
         ii. What are the 10 most predictive features? This can be measured by the normalized absolute difference of means for            the feature between the two classes
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
+   <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mfrac>
     <mrow>
       <mfenced open="|" close="|" separators="|">
@@ -78,6 +78,8 @@ or not.
     </mrow>
   </mfrac>
 </math>
+
+μ T - μ F σ T + σ F
 
 The larger this different, the more predictive the feature. Why do these make sense (or not)?
 How do these results compare with your results from decision trees, above?
